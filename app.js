@@ -395,7 +395,47 @@ app.post("/shopify/orders/:id",async (request, response) => {
       response.status(500).send(error);
   }
 });
+app.post("/shopify/orders/:id/close",async (request, response) => {
+  try {
 
+
+    console.log("post /shopify/orders/:id/close with request");
+    console.log("close order: " + request.params.id);
+
+
+    var orderID = request.params.id
+    
+
+
+
+    var URL = "https://45e07faf7bc41c6e83182f3af6a62a17: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@centennial-capstone-store.myshopify.com/admin/api/2020-04/orders/"+ orderID +"/close.json"
+
+    requestAPI.post(URL,
+      function (errorShopify, responseShopify, bodyShopify) {
+
+          console.log(bodyShopify)
+
+          if (!errorShopify && responseShopify.statusCode == 200) {
+              console.log("success");
+          }
+
+          response.send(responseShopify);
+
+          console.log("wrong " + responseShopify)
+          console.log(util.inspect(responseShopify.statusCode, {showHidden: false, depth: null}))
+
+    }
+    );
+
+
+   // response.send("post /shopify/orders/:id with request");
+
+  } catch (error) {
+      console.log("super wrong " + error)
+
+      response.status(500).send(error);
+  }
+});
 
 app.post("/shopify/orders",async (request, response) => {
   try {
