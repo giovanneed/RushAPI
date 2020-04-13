@@ -1,9 +1,0 @@
-user: infolove_1
-data-base:infolove_1
-servidor: dbmy0042.whservidor.com
-
--19.921344,-43.94008 shopping cidade
--19.940044,-43.933806 patio savassi
--19.920287,-43.919232 boulevard shopping
--19.889035,-43.967695 del rey	
--19.927677,-43.946789 diammond mall
