@@ -306,6 +306,48 @@ app.get("/shopify/orders",async (request, response) => {
       response.status(500).send(error);
   }
 });
+app.get("/shopify/orders/:id",async (request, response) => {
+  try {
+
+
+    console.log("get /shopify/orders/:id with request");
+    console.log("get order: " + request.params.id);
+
+
+    var orderID = request.params.id
+    
+
+
+
+    var URL = "https://45e07faf7bc41c6e83182f3af6a62a17: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@centennial-capstone-store.myshopify.com/admin/api/2020-04/orders/"+ orderID +".json"
+
+    requestAPI.get(URL,
+
+      function (errorShopify, responseShopify, bodyShopify) {
+
+          console.log(bodyShopify)
+
+          if (!errorShopify && responseShopify.statusCode == 200) {
+              console.log("success");
+          }
+
+          response.send(bodyShopify);
+
+          console.log("wrong " + responseShopify)
+          console.log(util.inspect(responseShopify.statusCode, {showHidden: false, depth: null}))
+
+    }
+    );
+
+
+   // response.send("post /shopify/orders/:id with request");
+
+  } catch (error) {
+      console.log("super wrong " + error)
+
+      response.status(500).send(error);
+  }
+});
 
 app.post("/shopify/orders/:id",async (request, response) => {
   try {
@@ -326,6 +368,53 @@ app.post("/shopify/orders/:id",async (request, response) => {
 
     requestAPI.put(URL,
     { json: orderUpdate,
+
+    },
+      function (errorShopify, responseShopify, bodyShopify) {
+
+          console.log(bodyShopify)
+
+          if (!errorShopify && responseShopify.statusCode == 200) {
+              console.log("success");
+          }
+
+          response.send(responseShopify);
+
+          console.log("wrong " + responseShopify)
+          console.log(util.inspect(responseShopify.statusCode, {showHidden: false, depth: null}))
+
+    }
+    );
+
+
+   // response.send("post /shopify/orders/:id with request");
+
+  } catch (error) {
+      console.log("super wrong " + error)
+
+      response.status(500).send(error);
+  }
+});
+
+
+app.post("/shopify/orders",async (request, response) => {
+  try {
+
+
+    console.log("post /shopify/orders/ with request");
+    console.log("Create order ");
+
+    var order = request.body; 
+    
+    console.log(util.inspect(order, {showHidden: false, depth: null}))
+    
+
+
+
+    var URL = "https://45e07faf7bc41c6e83182f3af6a62a17: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@centennial-capstone-store.myshopify.com/admin/api/2020-04/orders.json"
+
+    requestAPI.post(URL,
+    { json: order,
 
     },
       function (errorShopify, responseShopify, bodyShopify) {

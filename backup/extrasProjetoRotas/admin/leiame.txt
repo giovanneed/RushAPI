@@ -1,0 +1,43 @@
+// Criação de uma tabela de usuários
+
+CREATE TABLE `usuarios` (
+  `usuarioid` int(11) NOT NULL auto_increment,
+  `login` varchar(50) NOT NULL default '',
+  `senha` varchar(50) NOT NULL default '',
+  `nivel` int(1) NOT NULL default '0',
+  PRIMARY KEY  (`usuarioid`)
+) TYPE=MyISAM
+
+CREATE TABLE `types` (
+  `typeid` int(11) NOT NULL auto_increment,
+  `type` varchar(30) NOT NULL default '',
+  PRIMARY KEY  (`typeid`)
+) TYPE=MyISAM
+
+// NÍVEIS
+1 - Consulta
+2 - Consulta/Inclusão
+3 - Consulta/Inclusão/Alteração
+4 - Consulta/Inclusão/Alteração/Exclusão
+
+// Scripts do Sistema
+
+Alguns Scripts que acessam o banco utilizam o arquivo "dbinfo.php", que já existe na raiz do "rotasdacopa", para determinar os parametros de acesso ao banco.
+Recomando deixar o diretorio "admin" dentro do "rotasdacopa".
+
+class.login.php   - Classe para facilitar o gerenciamento de usuario/sessão
+config.php        - Configurações Básicas do Sistema
+criar_usuario.php - Criação de Usuários pra acesso ao Sistema  (IGNORAR O WARNING.)
+index.php         - Tela de login do Sistema
+logon.php         - Processa o login para acesso ao Sistema
+auth.php          - Script que limita qualquer página para que o acesso seja restrito
+menu.php          - Menu Principal (Não está sendo utilizado, o redirecionamento do Logon vai para a listagem.php)
+listagem.php      - Listagem dos Registros, com possibilidade de visualização da imagem, alteração de dados e exclusão do registro
+cadastro.php      - Formulário de cadastramento de um Ponto de Interesse
+acao.php          - Script de Controle - Processa a Inclusão, Exibe formulário de Alteração, Processa Alteração e Processa Exclusão
+img_show.php      - Exibe imagem de um determinado ID de POI
+logout.php        - Desconectar do Sistema
+funcoes.php       - Funções básicas de apoio
+filtra_tipos.php  - Recebendo parametro "typeid", o script retorna em notação JSON os POI´s desse tipo.
+testa_select.html - Tela de exemplo utilizando JQUERY com o "filtra_tipos.php" para alimentar um select dependendo da informação do outro select.
+

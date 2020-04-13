@@ -1,0 +1,20 @@
+Mary In Hell  
+Rua Tomé de Souza, 470 - Belo Horizonte - MG, 30140-130, Brasil
++55 31 9771-6669 ?
+maryinhell.com.br
+-19.937952,-43.930936
+
+
+insert into TabEstabelecimento (nome, endereco, telefone, site, foto, descricao, avaliacao, lat, lon)
+values ('Mary In Hell', 
+		'Rua Tomé de Souza, 470 - Belo Horizonte - MG, 30140-130, Brasil', 
+		'+55 31 9771-6669',
+		'maryinhell.com.br','http://infolove.com.br/eve/imgs/foto.jpg',
+		'Casa descolada de BH reúne música e arte em espaço urbano.',
+		'5',
+		'-19.937952',
+		'-43.930936')
+
+
+insert into TabEvento (codEstabelecimento,data,hora,descricao,confirmados)
+values('3','22/05/2011','22:00','teste evento','2')

@@ -1,0 +1,320 @@
+
+	<!DOCTYPE HTML>
+
+
+<html lang="en-US">
+
+
+<head>
+
+
+	<meta charset="UTF-8">
+
+
+	<title>Main Page</title>
+
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+
+
+	<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+
+
+	<script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+	<div data-role="page">
+
+
+		<div data-role="header"><h1>Main Page</h1><a href="index.html" data-icon="back">Back</a></div>
+
+
+		<div data-role="content"><section id="wrapper">
+
+
+    <header>
+
+
+      
+
+
+    </header><meta name="viewport" content="width=620" />
+
+
+
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+
+    <article>
+
+
+      <p>Finding your location: <span id="status">checking...</span></p>
+
+
+    </article>
+
+
+<script>
+
+
+function success(position) {
+  var s = document.querySelector('#status');
+  if (s.className == 'success') {
+    // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+    return;
+  }
+
+  s.innerHTML = "found you!";
+
+
+  s.className = 'success';
+
+  var mapcanvas = document.createElement('div');
+
+
+  mapcanvas.id = 'mapcanvas';
+
+
+  mapcanvas.style.height = '400px';
+
+
+  mapcanvas.style.width = '560px';
+
+
+    
+
+
+  document.querySelector('article').appendChild(mapcanvas);
+
+
+  
+
+
+  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+
+  var myOptions = {
+
+
+    zoom: 15,
+
+
+    center: latlng,
+
+
+    mapTypeControl: false,
+
+
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+
+
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+
+  };
+
+
+  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+
+  var marker = new google.maps.Marker({
+
+
+      position: latlng, 
+
+
+      map: map, 
+
+
+      title:"You are here!"
+
+
+  });
+
+
+}
+
+
+
+
+
+function error(msg) {
+
+
+  var s = document.querySelector('#status');
+
+
+  s.innerHTML = typeof msg == 'string' ? msg : "failed";
+
+
+  s.className = 'fail';
+
+
+  
+
+
+  // console.log(arguments);
+
+
+}
+
+
+
+
+
+if (navigator.geolocation) {
+
+
+  navigator.geolocation.getCurrentPosition(success, error);
+
+
+} else {
+
+
+  error('not supported');
+
+
+}
+
+
+
+
+
+</script>
+
+
+   
+
+
+</section>
+
+
+
+
+
+<script src="/js/prettify.packed.js"></script>
+
+
+<script>
+
+var initialLocation;
+var siberia = new google.maps.LatLng(60, 105);
+var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
+var browserSupportFlag =  new Boolean();
+
+function initialize() {
+  var myOptions = {
+    zoom: 6,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  
+  // Try W3C Geolocation (Preferred)
+  if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+    }, function() {
+      handleNoGeolocation(browserSupportFlag);
+    });
+  // Try Google Gears Geolocation
+  } else if (google.gears) {
+    browserSupportFlag = true;
+    var geo = google.gears.factory.create('beta.geolocation');
+    geo.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
+      map.setCenter(initialLocation);
+    }, function() {
+      handleNoGeoLocation(browserSupportFlag);
+    });
+  // Browser doesn't support Geolocation
+  } else {
+    browserSupportFlag = false;
+    handleNoGeolocation(browserSupportFlag);
+  }
+  
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag == true) {
+      alert("Geolocation service failed.");
+      initialLocation = newyork;
+    } else {
+      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+      initialLocation = siberia;
+    }
+    map.setCenter(initialLocation);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+
+
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+
+</script>
+
+
+<script>
+
+
+try {
+
+
+var pageTracker = _gat._getTracker("UA-1656750-18");
+
+
+pageTracker._trackPageview();
+
+
+} catch(err) {}</script></div>
+
+
+       
+
+
+	</div>
+
+
+	
+
+
+</body>
+
+
+</html>
+

@@ -1,0 +1,2 @@
+php_value allow_url_fopen on
+php_value allow_url_include 1

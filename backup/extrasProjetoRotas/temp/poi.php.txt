@@ -1,0 +1,19 @@
+		/* Adicionando POIs */
+		<?php $i=1; foreach($pois as $poi) { ?>
+		var marker<?php echo $i ?> = new google.maps.Marker({
+			position: location,
+			icon: image,
+			map: map
+		});
+	
+		var infoContent = '<div style="height:250px;width:250px"><p>' + <?php echo $poi->address; ?> + '</p><div id="fmtAddrss"><img src="' + <?php echo $poi->image; ?> + '" /></div>';
+		
+		infowindow.setContent(infoContent);
+		
+		google.maps.event.addListener(marker<?php echo $i; ?>, 'click', function() {
+			infowindow.open(map, marker<?php echo $i; ?>);
+		});
+		
+		marker<?php echo $i; ?>.info = infowindow;
+		markers.push(marker<?php echo $i; ?>);
+		<?php $i++; } ?>

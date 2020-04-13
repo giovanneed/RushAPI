@@ -1,0 +1,147 @@
+/* CSSSERVI�OS */
+
+a:link{
+	color: #9BA1A5;
+	text-decoration: none;
+}
+
+a:visited{
+	color: #9BA1A5;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #9BA1A5;
+	text-decoration: none;
+}
+
+a:active{
+	color: #9BA1A5;
+	text-decoration: none;
+}
+
+body {
+    border: 0px;
+    overflow: hidden;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #555252;
+	Xbackground-color:#FFFFFF;
+	margin-top:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	text-align: center;
+}
+
+div.image{
+    width: 735px;
+    height: 396px;
+    overflow: auto;
+}
+
+div.tabela{
+     width: 735px;
+     height: 173px;
+     overflow: auto;
+}
+
+img.botao
+{
+     cursor:pointer;
+}
+
+input {
+	font-size:12px;
+	margin-top:2px;
+	margin-bottom:1px;
+
+  	Xborder: 1px solid #93b1d1;
+}
+
+option{
+	font-family: XVerdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	Xbackground-color: #F2F2F2
+}
+
+.rodape{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size: 10px;
+	color: #666666;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+}
+
+select{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	Xbackground-color: #F2F2F2
+}
+
+table.background {
+	color: #333333;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	text-align: left;
+	background:no-repeat
+}
+
+td{
+	font-weight: normal;
+	margin-top:1px;
+	vertical-align:middle;
+	font-size: 10pt;
+	color: #4D4B4A;
+	Xbackground-color: #FFFFFF;
+}
+
+td.temaazul1{
+	font-family: XVerdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	margin-top:20px;
+	margin-bottom:6px;
+	color: #000000;
+	background-color: #d3ecc7;
+}
+
+td.titulo{
+	text-align: left;
+	color:green;
+	font-weight:bold;
+	font-size:15px;
+	letter-spacing:-1px;
+}
+
+td.default{
+    text-align: left;
+    padding-left: 15px;
+	margin-top:3px;
+}
+
+td.tabela{
+    padding: 3px;
+    width: 755px;
+    height: 173px;
+}
+
+td.titulotabela{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: #333333;
+	background-color: #e3b89d;
+	padding-top: 3px;
+	padding-right: 0px;
+	padding-bottom: 3px;
+}
+
+tr.default{
+    height: 30px;
+}
